@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://dvoeqyg0pxwf8"]
+
+[ext_resource type="Texture2D" uid="uid://ckxepmqm53kmb" path="res://Assets/Sprites/fixed background swiped 2.png" id="1_7g3st"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sn1xx"]
+size = Vector2(2233.3125, 20)
+
+[node name="Background2" type="Sprite2D" unique_id=155435071]
+z_index = -3
+scale = Vector2(0.5189189, 0.51428574)
+texture = ExtResource("1_7g3st")
+flip_h = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1527679479]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=407309136]
+position = Vector2(6.7326393, 253.33333)
+shape = SubResource("RectangleShape2D_sn1xx")

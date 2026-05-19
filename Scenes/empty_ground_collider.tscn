@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://c7djcnya7kske"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t1vrf"]
+size = Vector2(1158, 46.5)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_gosfk"]
+
+[node name="EmptyGroundCollider" type="StaticBody2D" unique_id=946441598]
+position = Vector2(0, 450)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1729973693]
+position = Vector2(573, 23.25)
+shape = SubResource("RectangleShape2D_t1vrf")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2100506677]
+visible = false
+position = Vector2(-0.49995282, 13)
+scale = Vector2(1151, 28)
+texture = SubResource("CanvasTexture_gosfk")

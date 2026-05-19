@@ -1,3 +1,265 @@
-[gd_scene format=3 uid="uid://dse22qaule5er"]
+[gd_scene format=3 uid="uid://bnki7a28q0js4"]
 
-[node name="Main" type="Node2D" unique_id=1780634689]
+[ext_resource type="Script" uid="uid://bn2eg3c6uwxte" path="res://Scenes/main.gd" id="1_21xkr"]
+[ext_resource type="PackedScene" uid="uid://c7djcnya7kske" path="res://Scenes/empty_ground_collider.tscn" id="1_jjgbg"]
+[ext_resource type="Texture2D" uid="uid://dp5e7gr8lx7lq" path="res://Assets/Sprites/stiik.png" id="2_6bp64"]
+[ext_resource type="PackedScene" uid="uid://5lygr0m3rmo6" path="res://Scenes/apple.tscn" id="2_bo1nx"]
+[ext_resource type="PackedScene" uid="uid://bjobqqwrlacyl" path="res://Scenes/click_manager.tscn" id="3_8gbba"]
+[ext_resource type="PackedScene" uid="uid://dstumq14cdbi2" path="res://Scenes/background.tscn" id="4_jjvhh"]
+[ext_resource type="PackedScene" uid="uid://c0uasc10h6dcb" path="res://Scenes/player.tscn" id="5_kry3j"]
+[ext_resource type="PackedScene" uid="uid://dqbeit5mmrylu" path="res://Scenes/dialog_manager.tscn" id="8_344ge"]
+[ext_resource type="Script" uid="uid://dm6tdg5gsn6y" path="res://Scenes/camera_2d.gd" id="9_ynf5e"]
+[ext_resource type="PackedScene" uid="uid://qko8lfupam7" path="res://Scenes/background_manager.tscn" id="10_hptm8"]
+[ext_resource type="Script" uid="uid://ckaxkrw155pqw" path="res://Scenes/mushroom_red.gd" id="11_ee4r6"]
+[ext_resource type="Texture2D" uid="uid://djj7hvxr0vih0" path="res://Assets/Fonts/red mush.png" id="12_gt3je"]
+[ext_resource type="Texture2D" uid="uid://tgb7m08bsuem" path="res://Assets/Fonts/red glow.png" id="13_3pmx8"]
+[ext_resource type="Script" uid="uid://c6sku60p4aqhr" path="res://Scenes/mushroom_orange.gd" id="14_u50mg"]
+[ext_resource type="Texture2D" uid="uid://bpakjuvveyyio" path="res://Assets/Fonts/orange mush.png" id="15_cbgmd"]
+[ext_resource type="Texture2D" uid="uid://en3q881xwodr" path="res://Assets/Fonts/glow orange.png" id="16_1w6v2"]
+[ext_resource type="Script" uid="uid://bb8ynl8m2auwc" path="res://Scenes/mushroom_yellow.gd" id="17_ueoa1"]
+[ext_resource type="Texture2D" uid="uid://ch7gose82q601" path="res://Assets/Fonts/yellow muish.png" id="18_6vcvc"]
+[ext_resource type="Texture2D" uid="uid://23prvjkgmr8h" path="res://Assets/Fonts/glow yellow.png" id="19_7k868"]
+[ext_resource type="Script" uid="uid://bb48n45em0rav" path="res://Scenes/mushroom_pink.gd" id="20_hpc6h"]
+[ext_resource type="Texture2D" uid="uid://dwbn6cyo4w1fm" path="res://Assets/Fonts/pink mush.png" id="21_kltya"]
+[ext_resource type="Texture2D" uid="uid://gygtl8ignwma" path="res://Assets/Fonts/pink glow.png" id="22_e08e2"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_344ge"]
+atlas = ExtResource("2_6bp64")
+region = Rect2(0, 0, 45, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hptm8"]
+size = Vector2(208, 677)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_35usm"]
+atlas = ExtResource("12_gt3je")
+region = Rect2(988, 2295, 494, 765)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xsh2u"]
+atlas = ExtResource("13_3pmx8")
+region = Rect2(988, 2295, 494, 765)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_neg2b"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_35usm")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xsh2u")
+}],
+"loop": true,
+"name": &"glow",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r33sp"]
+size = Vector2(456.46545, 477.0622)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_escnx"]
+atlas = ExtResource("15_cbgmd")
+region = Rect2(988, 2295, 494, 765)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yqj71"]
+atlas = ExtResource("16_1w6v2")
+region = Rect2(988, 2295, 494, 765)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hdf80"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_escnx")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yqj71")
+}],
+"loop": true,
+"name": &"glow",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jhit7"]
+atlas = ExtResource("18_6vcvc")
+region = Rect2(988, 2295, 494, 765)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f7gcb"]
+atlas = ExtResource("19_7k868")
+region = Rect2(988, 2295, 494, 765)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jwpg7"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jhit7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f7gcb")
+}],
+"loop": true,
+"name": &"glow",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pesx7"]
+atlas = ExtResource("21_kltya")
+region = Rect2(988, 2295, 494, 765)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4m7sr"]
+atlas = ExtResource("22_e08e2")
+region = Rect2(988, 2295, 494, 765)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_k2e45"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pesx7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4m7sr")
+}],
+"loop": true,
+"name": &"glow",
+"speed": 5.0
+}]
+
+[node name="Main" type="Node2D" unique_id=544268819]
+script = ExtResource("1_21xkr")
+cursor_texture = SubResource("AtlasTexture_344ge")
+
+[node name="EmptyGroundCollider" parent="." unique_id=946441598 instance=ExtResource("1_jjgbg")]
+position = Vector2(576, 737)
+
+[node name="Apple" parent="." unique_id=225834338 instance=ExtResource("2_bo1nx")]
+position = Vector2(152, 411)
+
+[node name="ClickManager" parent="." unique_id=404097812 instance=ExtResource("3_8gbba")]
+position = Vector2(485.1753, -821.07214)
+
+[node name="Background" parent="." unique_id=1775955425 instance=ExtResource("4_jjvhh")]
+visible = false
+
+[node name="Background2" parent="." unique_id=155435071 instance=ExtResource("4_jjvhh")]
+visible = false
+position = Vector2(-577, 324)
+flip_h = true
+
+[node name="Player" parent="." unique_id=599156286 instance=ExtResource("5_kry3j")]
+position = Vector2(603, 363)
+
+[node name="DialogManager" parent="." unique_id=1028928497 instance=ExtResource("8_344ge")]
+layer = 10
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1798617692]
+position = Vector2(574, 324)
+limit_left = -9200
+limit_right = 1150
+position_smoothing_enabled = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+drag_left_margin = 0.1
+drag_top_margin = 0.1
+drag_right_margin = 0.1
+drag_bottom_margin = 0.1
+script = ExtResource("9_ynf5e")
+
+[node name="BackgroundManager" parent="." unique_id=623369939 instance=ExtResource("10_hptm8")]
+
+[node name="Background3" parent="." unique_id=1089686110 instance=ExtResource("4_jjvhh")]
+visible = false
+position = Vector2(575.5, 324)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=202732483]
+position = Vector2(1138, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=2010093773]
+position = Vector2(-14, 328.5)
+shape = SubResource("RectangleShape2D_hptm8")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="." unique_id=2047404988]
+position = Vector2(-9160, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" unique_id=672065714]
+position = Vector2(51, 329)
+shape = SubResource("RectangleShape2D_hptm8")
+
+[node name="MushroomRed" type="Area2D" parent="." unique_id=1601988690]
+position = Vector2(-8571.389, 510)
+scale = Vector2(0.23145197, 0.23145197)
+script = ExtResource("11_ee4r6")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="MushroomRed" unique_id=2031816947]
+position = Vector2(-580.34717, 124.44451)
+sprite_frames = SubResource("SpriteFrames_neg2b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MushroomRed" unique_id=755610216]
+position = Vector2(-551.8056, 77.77783)
+scale = Vector2(0.99999964, 1)
+shape = SubResource("RectangleShape2D_r33sp")
+
+[node name="MushroomOrange" type="Area2D" parent="." unique_id=2134437391]
+position = Vector2(-8579, 556.66675)
+scale = Vector2(0.23145197, 0.23145197)
+script = ExtResource("14_u50mg")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="MushroomOrange" unique_id=1417461017]
+sprite_frames = SubResource("SpriteFrames_hdf80")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MushroomOrange" unique_id=268911757]
+position = Vector2(32.346436, -44.72278)
+scale = Vector2(0.99999964, 1)
+shape = SubResource("RectangleShape2D_r33sp")
+
+[node name="MushroomYellow" type="Area2D" parent="." unique_id=1087104511]
+position = Vector2(-8371.598, 539.16675)
+scale = Vector2(0.23145197, 0.23145197)
+script = ExtResource("17_ueoa1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="MushroomYellow" unique_id=1910929113]
+sprite_frames = SubResource("SpriteFrames_jwpg7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MushroomYellow" unique_id=92392197]
+position = Vector2(32.346436, -44.72278)
+scale = Vector2(0.99999964, 1)
+shape = SubResource("RectangleShape2D_r33sp")
+
+[node name="MushroomPink" type="Area2D" parent="." unique_id=208722492]
+position = Vector2(-8413.458, 531.389)
+scale = Vector2(0.23145197, 0.23145197)
+script = ExtResource("20_hpc6h")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="MushroomPink" unique_id=755015516]
+position = Vector2(721.0079, -37.10485)
+sprite_frames = SubResource("SpriteFrames_k2e45")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MushroomPink" unique_id=499624833]
+position = Vector2(726.1951, -68.908966)
+scale = Vector2(0.99999964, 1)
+shape = SubResource("RectangleShape2D_r33sp")
+
+[connection signal="mouse_entered" from="MushroomRed" to="MushroomRed" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="MushroomRed" to="MushroomRed" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="MushroomOrange" to="MushroomOrange" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="MushroomOrange" to="MushroomOrange" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="MushroomYellow" to="MushroomYellow" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="MushroomYellow" to="MushroomYellow" method="_on_mouse_exited"]
+[connection signal="mouse_entered" from="MushroomPink" to="MushroomPink" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="MushroomPink" to="MushroomPink" method="_on_mouse_exited"]

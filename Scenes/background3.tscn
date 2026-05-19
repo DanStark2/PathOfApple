@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://6ti0y2i1q14t"]
+
+[ext_resource type="Texture2D" uid="uid://dfhthkoqiaacp" path="res://Assets/Sprites/puzzle_area_1.png" id="1_87o2l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_87o2l"]
+size = Vector2(2233.3125, 20)
+
+[node name="Background3" type="Sprite2D" unique_id=155435071]
+z_index = -3
+position = Vector2(575.99994, 323.99997)
+scale = Vector2(0.5255474, 0.5142857)
+texture = ExtResource("1_87o2l")
+flip_h = true
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1437991327]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1607870310]
+position = Vector2(6.7326393, 253.33333)
+shape = SubResource("RectangleShape2D_87o2l")

@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://qko8lfupam7"]
+
+[ext_resource type="Script" uid="uid://dcuunc8i5d8qo" path="res://Scenes/background_manager.gd" id="1_tvlrr"]
+[ext_resource type="PackedScene" uid="uid://dstumq14cdbi2" path="res://Scenes/background.tscn" id="2_ediq7"]
+[ext_resource type="PackedScene" uid="uid://b2nvw76eld0hr" path="res://Scenes/background2.tscn" id="3_xhcui"]
+[ext_resource type="PackedScene" uid="uid://dvoeqyg0pxwf8" path="res://Scenes/background2flip.tscn" id="4_oxtws"]
+[ext_resource type="PackedScene" uid="uid://dope6cjxej7uq" path="res://Scenes/backgroundflip.tscn" id="5_2vec3"]
+[ext_resource type="PackedScene" uid="uid://6ti0y2i1q14t" path="res://Scenes/background3.tscn" id="6_2vec3"]
+
+[node name="BackgroundManager" type="Node2D" unique_id=623369939 groups=["backgroundManager"]]
+script = ExtResource("1_tvlrr")
+bgQueueLeft = Array[PackedScene]([ExtResource("3_xhcui"), ExtResource("2_ediq7"), ExtResource("5_2vec3"), ExtResource("4_oxtws"), ExtResource("3_xhcui"), ExtResource("2_ediq7"), ExtResource("5_2vec3"), ExtResource("4_oxtws"), ExtResource("6_2vec3")])

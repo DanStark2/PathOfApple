@@ -1,0 +1,215 @@
+[gd_scene format=3 uid="uid://dqorq08se7ll1"]
+
+[ext_resource type="Texture2D" uid="uid://bvuso8i5pxajh" path="res://Assets/Fonts/start button.png" id="1_48xlc"]
+[ext_resource type="Script" uid="uid://dthgsb87x0gr5" path="res://Scenes/main_menu.gd" id="1_cp0ys"]
+[ext_resource type="Texture2D" uid="uid://bwuhwrdlm4efd" path="res://Assets/Fonts/start hover.png" id="2_1ehe0"]
+[ext_resource type="Texture2D" uid="uid://df8qs8pyjh7le" path="res://Assets/Fonts/exit button.png" id="3_1ehe0"]
+[ext_resource type="Texture2D" uid="uid://cmb6tmhov2icj" path="res://Assets/Fonts/exit hover.png" id="4_ce3w2"]
+[ext_resource type="Texture2D" uid="uid://cbl8uf4ejrqbo" path="res://Assets/Fonts/menu 1 img .png" id="5_opfnp"]
+[ext_resource type="Texture2D" uid="uid://cpqgsofeibpnb" path="res://Assets/Fonts/menu 2 img .png" id="6_cp0ys"]
+[ext_resource type="FontFile" uid="uid://d3f15qht318sx" path="res://Assets/Fonts/friendlyscribbles.ttf" id="8_yhxw7"]
+[ext_resource type="AudioStream" uid="uid://cy0l013g2ivyr" path="res://Assets/SFX/Music/Title screen song.mp3" id="9_trj04"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ce3w2"]
+atlas = ExtResource("1_48xlc")
+region = Rect2(72, 328, 1040, 416)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n45e2"]
+atlas = ExtResource("2_1ehe0")
+region = Rect2(72, 328, 1040, 416)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_opfnp"]
+atlas = ExtResource("3_1ehe0")
+region = Rect2(264, 344, 736, 336)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cp0ys"]
+atlas = ExtResource("4_ce3w2")
+region = Rect2(264, 344, 736, 336)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yhxw7"]
+atlas = ExtResource("5_opfnp")
+region = Rect2(0, 0, 1920, 1080)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_trj04"]
+atlas = ExtResource("6_cp0ys")
+region = Rect2(0, 0, 1920, 1080)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_16hvj"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yhxw7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_trj04")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[sub_resource type="LabelSettings" id="LabelSettings_16hvj"]
+font = ExtResource("8_yhxw7")
+font_size = 32
+
+[sub_resource type="Animation" id="Animation_vr1f0"]
+resource_name = "Intro"
+length = 12.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(2.1666667, 3.2666667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.05),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 3.4333334),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_16hvj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/ColorRect:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AudioStreamPlayer:playing")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_t1dhk"]
+_data = {
+&"Intro": SubResource("Animation_vr1f0"),
+&"RESET": SubResource("Animation_16hvj")
+}
+
+[node name="MainMenu" type="Control" unique_id=1366812329]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_cp0ys")
+
+[node name="Start" type="TextureButton" parent="." unique_id=576789540]
+layout_mode = 0
+offset_left = 36.000015
+offset_top = 347.0
+offset_right = 1076.0
+offset_bottom = 763.0
+scale = Vector2(0.2, 0.2)
+texture_normal = SubResource("AtlasTexture_ce3w2")
+texture_hover = SubResource("AtlasTexture_n45e2")
+
+[node name="Exit" type="TextureButton" parent="." unique_id=1943345262]
+layout_mode = 0
+offset_left = 54.000015
+offset_top = 481.00003
+offset_right = 790.0
+offset_bottom = 817.0
+scale = Vector2(0.23047967, 0.24891806)
+texture_normal = SubResource("AtlasTexture_opfnp")
+texture_hover = SubResource("AtlasTexture_cp0ys")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1278420105]
+z_index = -1
+position = Vector2(576.00006, 324.00003)
+scale = Vector2(0.6, 0.6)
+sprite_frames = SubResource("SpriteFrames_16hvj")
+autoplay = "default"
+frame_progress = 0.52665144
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=517093656]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1221594930]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="CanvasLayer/ColorRect" unique_id=1139821114]
+z_index = 1
+layout_mode = 0
+offset_left = 406.0
+offset_top = 319.0
+offset_right = 772.0
+offset_bottom = 352.0
+pivot_offset = Vector2(179, 16)
+text = "Nell And Daniel Present.."
+label_settings = SubResource("LabelSettings_16hvj")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AP" type="AnimationPlayer" parent="." unique_id=1133092281]
+libraries/ = SubResource("AnimationLibrary_t1dhk")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1850756204]
+stream = ExtResource("9_trj04")
+
+[node name="Button" type="Button" parent="." unique_id=1744189810]
+layout_mode = 0
+offset_left = -38.0
+offset_top = -3.0
+offset_right = -30.0
+offset_bottom = 5.0
+
+[connection signal="pressed" from="Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="Exit" to="." method="_on_exit_pressed"]

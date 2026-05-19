@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://5lygr0m3rmo6"]
+
+[ext_resource type="Script" uid="uid://c53vgc6acfk71" path="res://Scripts/apple.gd" id="1_ir1en"]
+[ext_resource type="Texture2D" uid="uid://c0ahb4016b22g" path="res://Assets/Sprites/apple.png" id="1_v3gsn"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ir1en"]
+atlas = ExtResource("1_v3gsn")
+region = Rect2(2776, 1990, 378, 361)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8gwai"]
+size = Vector2(438, 445)
+
+[node name="Apple" type="Area2D" unique_id=225834338]
+scale = Vector2(0.2, 0.2)
+script = ExtResource("1_ir1en")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1932193959]
+scale = Vector2(0.5797951, 0.5797951)
+texture = SubResource("AtlasTexture_ir1en")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=855191412]
+position = Vector2(-6, -0.5)
+shape = SubResource("RectangleShape2D_8gwai")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

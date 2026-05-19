@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://dqbeit5mmrylu"]
+
+[ext_resource type="Script" uid="uid://cbmtj3ilkahcl" path="res://Scenes/dialog_manager.gd" id="1_y08wg"]
+[ext_resource type="FontFile" uid="uid://d3f15qht318sx" path="res://Assets/Fonts/friendlyscribbles.ttf" id="2_wgaem"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_0tbwh"]
+font = ExtResource("2_wgaem")
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_wgaem"]
+
+[node name="DialogManager" type="CanvasLayer" unique_id=1028928497 groups=["dialogManager"]]
+script = ExtResource("1_y08wg")
+
+[node name="Label" type="Label" parent="." unique_id=1401571330]
+z_index = 1
+offset_left = 359.0
+offset_top = 518.0
+offset_right = 797.0
+offset_bottom = 636.0
+text = "lots of differing dialouges"
+label_settings = SubResource("LabelSettings_0tbwh")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1637301288]
+modulate = Color(0.15487596, 0.154876, 0.15487596, 1)
+position = Vector2(579.5, 576.25)
+scale = Vector2(469, 142.50002)
+texture = SubResource("CanvasTexture_wgaem")
