@@ -1,19 +1,44 @@
 [gd_scene format=3 uid="uid://6ti0y2i1q14t"]
 
-[ext_resource type="Texture2D" uid="uid://dfhthkoqiaacp" path="res://Assets/Sprites/puzzle_area_1.png" id="1_87o2l"]
+[ext_resource type="Texture2D" uid="uid://bfu8xy0up200c" path="res://Assets/Sprites/NewerAssets/puzzle area clean pace.png" id="1_7khk4"]
+[ext_resource type="Texture2D" uid="uid://ckvl7egbvs145" path="res://Assets/Sprites/NewerAssets/bush.png" id="2_018rq"]
+[ext_resource type="Texture2D" uid="uid://x11i371yh4dk" path="res://Assets/Sprites/NewerAssets/trees.png" id="3_kp3on"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_87o2l"]
 size = Vector2(2233.3125, 20)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_affxe"]
+atlas = ExtResource("3_kp3on")
+region = Rect2(2008, 0, 800, 1264)
+
 [node name="Background3" type="Sprite2D" unique_id=155435071]
-z_index = -3
-position = Vector2(575.99994, 323.99997)
+z_index = -4
+position = Vector2(619.00006, 328)
 scale = Vector2(0.5255474, 0.5142857)
-texture = ExtResource("1_87o2l")
+texture = ExtResource("1_7khk4")
 flip_h = true
 
 [node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1437991327]
+z_index = -1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1607870310]
-position = Vector2(6.7326393, 253.33333)
+position = Vector2(6.733, 253.333)
+scale = Vector2(0.99999994, 1)
 shape = SubResource("RectangleShape2D_87o2l")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1785011957]
+visible = false
+position = Vector2(140.80545, 42.77778)
+texture = ExtResource("2_018rq")
+flip_h = true
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1607348724]
+z_index = 3
+position = Vector2(1100.736, 0)
+texture = ExtResource("3_kp3on")
+
+[node name="Sprite2D3" type="Sprite2D" parent="." unique_id=812262232]
+z_index = 3
+position = Vector2(1247.2498, 0)
+texture = SubResource("AtlasTexture_affxe")
+flip_h = true

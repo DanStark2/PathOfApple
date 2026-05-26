@@ -29,6 +29,10 @@ window/stretch/mode="canvas_items"
 
 player=""
 dialogManager=""
+AnimationPlayer=""
+Mushroom_Puzzle=""
+AppleCollition=""
+EndAnim=""
 
 [input]
 

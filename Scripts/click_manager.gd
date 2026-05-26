@@ -1,6 +1,7 @@
 extends Node2D
 
 @onready var player: CharacterBody2D = get_tree().get_first_node_in_group("player")
+@onready var AppleCollition: StaticBody2D = get_tree().get_first_node_in_group("AppleCollition")
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
@@ -29,6 +30,7 @@ func get_object_at_pos(world_pos: Vector2) -> Node:
 	query.collide_with_areas = true
 	query.collide_with_bodies = true
 	query.exclude = [player.get_rid()]
+	query.exclude = [AppleCollition.get_rid()]
 	
 	var results := space_state.intersect_point(query, 1)
 	

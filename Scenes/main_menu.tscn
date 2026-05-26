@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://cbl8uf4ejrqbo" path="res://Assets/Fonts/menu 1 img .png" id="5_opfnp"]
 [ext_resource type="Texture2D" uid="uid://cpqgsofeibpnb" path="res://Assets/Fonts/menu 2 img .png" id="6_cp0ys"]
 [ext_resource type="FontFile" uid="uid://d3f15qht318sx" path="res://Assets/Fonts/friendlyscribbles.ttf" id="8_yhxw7"]
-[ext_resource type="AudioStream" uid="uid://cy0l013g2ivyr" path="res://Assets/SFX/Music/Title screen song.mp3" id="9_trj04"]
+[ext_resource type="AudioStream" uid="uid://i5pjhu38hh80" path="res://Assets/SFX/Music/Title Screen_Final Version.mp3" id="9_trj04"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ce3w2"]
 atlas = ExtResource("1_48xlc")
@@ -193,7 +193,7 @@ offset_top = 319.0
 offset_right = 772.0
 offset_bottom = 352.0
 pivot_offset = Vector2(179, 16)
-text = "Nell And Daniel Present.."
+text = "[Insert Studio Name] Presents.."
 label_settings = SubResource("LabelSettings_16hvj")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -203,6 +203,7 @@ libraries/ = SubResource("AnimationLibrary_t1dhk")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1850756204]
 stream = ExtResource("9_trj04")
+parameters/looping = true
 
 [node name="Button" type="Button" parent="." unique_id=1744189810]
 layout_mode = 0

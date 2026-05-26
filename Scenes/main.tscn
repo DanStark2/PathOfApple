@@ -22,10 +22,11 @@
 [ext_resource type="Script" uid="uid://bb48n45em0rav" path="res://Scenes/mushroom_pink.gd" id="20_hpc6h"]
 [ext_resource type="Texture2D" uid="uid://dwbn6cyo4w1fm" path="res://Assets/Fonts/pink mush.png" id="21_kltya"]
 [ext_resource type="Texture2D" uid="uid://gygtl8ignwma" path="res://Assets/Fonts/pink glow.png" id="22_e08e2"]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_344ge"]
-atlas = ExtResource("2_6bp64")
-region = Rect2(0, 0, 45, 64)
+[ext_resource type="AudioStream" uid="uid://cs7qmbfdu4wi0" path="res://Assets/SFX/Music/AmbientTrack.mp3" id="23_gt3je"]
+[ext_resource type="Script" uid="uid://d4ifff872d2mb" path="res://Scenes/mushroom_puzzle.gd" id="24_3pmx8"]
+[ext_resource type="Script" uid="uid://dxbena8xt8ngq" path="res://Scenes/mushroom_exit.gd" id="25_cbgmd"]
+[ext_resource type="Texture2D" uid="uid://ckvl7egbvs145" path="res://Assets/Sprites/NewerAssets/bush.png" id="25_u50mg"]
+[ext_resource type="FontFile" uid="uid://d3f15qht318sx" path="res://Assets/Fonts/friendlyscribbles.ttf" id="27_1w6v2"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_hptm8"]
 size = Vector2(208, 677)
@@ -58,7 +59,7 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r33sp"]
-size = Vector2(456.46545, 477.0622)
+size = Vector2(836.2023, 724.1379)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_escnx"]
 atlas = ExtResource("15_cbgmd")
@@ -141,14 +142,195 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="Animation" id="Animation_u50mg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/CanvasLayer/ColorRect:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationPlayer/Bush:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimationPlayer/CanvasLayer/ColorRect:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MushroomExit:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_3pmx8"]
+resource_name = "mushroom_end"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimationPlayer/CanvasLayer/ColorRect:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.96666664, 1.6666666, 2.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimationPlayer/Bush:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimationPlayer/CanvasLayer/ColorRect:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.05, 3),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [false, true, false]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MushroomExit:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_u50mg"]
+_data = {
+&"RESET": SubResource("Animation_u50mg"),
+&"mushroom_end": SubResource("Animation_3pmx8")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u50mg"]
+size = Vector2(354.83868, 703.2267)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_cbgmd"]
+size = Vector2(210, 145)
+
+[sub_resource type="Animation" id="Animation_ueoa1"]
+resource_name = "End"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("End/CanvasLayer:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.04),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("End/CanvasLayer/ColorRect:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.1333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_6vcvc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("End/CanvasLayer:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("End/CanvasLayer/ColorRect:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_7k868"]
+_data = {
+&"End": SubResource("Animation_ueoa1"),
+&"RESET": SubResource("Animation_6vcvc")
+}
+
+[sub_resource type="LabelSettings" id="LabelSettings_hpc6h"]
+font = ExtResource("27_1w6v2")
+font_size = 32
+
 [node name="Main" type="Node2D" unique_id=544268819]
 script = ExtResource("1_21xkr")
-cursor_texture = SubResource("AtlasTexture_344ge")
+cursor_texture = ExtResource("2_6bp64")
 
 [node name="EmptyGroundCollider" parent="." unique_id=946441598 instance=ExtResource("1_jjgbg")]
 position = Vector2(576, 737)
 
 [node name="Apple" parent="." unique_id=225834338 instance=ExtResource("2_bo1nx")]
+z_index = -2
 position = Vector2(152, 411)
 
 [node name="ClickManager" parent="." unique_id=404097812 instance=ExtResource("3_8gbba")]
@@ -163,6 +345,7 @@ position = Vector2(-577, 324)
 flip_h = true
 
 [node name="Player" parent="." unique_id=599156286 instance=ExtResource("5_kry3j")]
+z_index = -1
 position = Vector2(603, 363)
 
 [node name="DialogManager" parent="." unique_id=1028928497 instance=ExtResource("8_344ge")]
@@ -201,59 +384,161 @@ position = Vector2(-9160, 1)
 position = Vector2(51, 329)
 shape = SubResource("RectangleShape2D_hptm8")
 
-[node name="MushroomRed" type="Area2D" parent="." unique_id=1601988690]
-position = Vector2(-8571.389, 510)
-scale = Vector2(0.23145197, 0.23145197)
+[node name="MushroomRed" type="Area2D" parent="." unique_id=1601988690 node_paths=PackedStringArray("puzzle_manager")]
+position = Vector2(-8737, 545)
+scale = Vector2(0.116, 0.116)
 script = ExtResource("11_ee4r6")
+puzzle_manager = NodePath("../MushroomPuzzle")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="MushroomRed" unique_id=2031816947]
-position = Vector2(-580.34717, 124.44451)
+position = Vector2(-32.15625, 49.81771)
 sprite_frames = SubResource("SpriteFrames_neg2b")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MushroomRed" unique_id=755610216]
-position = Vector2(-551.8056, 77.77783)
-scale = Vector2(0.99999964, 1)
+position = Vector2(-4.3125, 0.00024414063)
+scale = Vector2(0.9999996, 0.9999999)
 shape = SubResource("RectangleShape2D_r33sp")
 
-[node name="MushroomOrange" type="Area2D" parent="." unique_id=2134437391]
-position = Vector2(-8579, 556.66675)
-scale = Vector2(0.23145197, 0.23145197)
+[node name="SFXPlayer" type="AudioStreamPlayer" parent="MushroomRed" unique_id=622681069]
+
+[node name="MushroomOrange" type="Area2D" parent="." unique_id=2134437391 node_paths=PackedStringArray("puzzle_manager")]
+position = Vector2(-8580.001, 534)
+scale = Vector2(0.116, 0.116)
 script = ExtResource("14_u50mg")
+puzzle_manager = NodePath("../MushroomPuzzle")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="MushroomOrange" unique_id=1417461017]
+position = Vector2(-29.513916, 46.936935)
 sprite_frames = SubResource("SpriteFrames_hdf80")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MushroomOrange" unique_id=268911757]
-position = Vector2(32.346436, -44.72278)
+position = Vector2(2.8325157, 2.2141647)
 scale = Vector2(0.99999964, 1)
 shape = SubResource("RectangleShape2D_r33sp")
 
-[node name="MushroomYellow" type="Area2D" parent="." unique_id=1087104511]
-position = Vector2(-8371.598, 539.16675)
-scale = Vector2(0.23145197, 0.23145197)
+[node name="SFXPlayer" type="AudioStreamPlayer" parent="MushroomOrange" unique_id=5947526]
+
+[node name="MushroomYellow" type="Area2D" parent="." unique_id=1087104511 node_paths=PackedStringArray("puzzle_manager")]
+position = Vector2(-8371.598, 522)
+scale = Vector2(0.116, 0.116)
 script = ExtResource("17_ueoa1")
+puzzle_manager = NodePath("../MushroomPuzzle")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="MushroomYellow" unique_id=1910929113]
+position = Vector2(-31.252266, 44.776665)
 sprite_frames = SubResource("SpriteFrames_jwpg7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MushroomYellow" unique_id=92392197]
-position = Vector2(32.346436, -44.72278)
+position = Vector2(1.0941696, 0.053894043)
 scale = Vector2(0.99999964, 1)
 shape = SubResource("RectangleShape2D_r33sp")
 
-[node name="MushroomPink" type="Area2D" parent="." unique_id=208722492]
-position = Vector2(-8413.458, 531.389)
-scale = Vector2(0.23145197, 0.23145197)
+[node name="SFXPlayer" type="AudioStreamPlayer" parent="MushroomYellow" unique_id=1820594526]
+
+[node name="MushroomPink" type="Area2D" parent="." unique_id=208722492 node_paths=PackedStringArray("puzzle_manager") groups=["Mushroom_Puzzle"]]
+position = Vector2(-8225, 521)
+scale = Vector2(0.116, 0.116)
 script = ExtResource("20_hpc6h")
+puzzle_manager = NodePath("../MushroomPuzzle")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="MushroomPink" unique_id=755015516]
-position = Vector2(721.0079, -37.10485)
+position = Vector2(-5.9331665, 30.85495)
 sprite_frames = SubResource("SpriteFrames_k2e45")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MushroomPink" unique_id=499624833]
-position = Vector2(726.1951, -68.908966)
+position = Vector2(-0.7459717, -0.9491577)
 scale = Vector2(0.99999964, 1)
 shape = SubResource("RectangleShape2D_r33sp")
+
+[node name="SFXPlayer" type="AudioStreamPlayer" parent="MushroomPink" unique_id=797559647]
+
+[node name="MusicPlayer" type="AudioStreamPlayer" parent="." unique_id=180088773]
+stream = ExtResource("23_gt3je")
+autoplay = true
+
+[node name="SFXPlayer" type="AudioStreamPlayer" parent="MusicPlayer" unique_id=1753406871]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=627403501 groups=["AnimationPlayer"]]
+libraries/ = SubResource("AnimationLibrary_u50mg")
+
+[node name="Bush" type="Sprite2D" parent="AnimationPlayer" unique_id=1694012212]
+z_index = -2
+position = Vector2(-8562, 346)
+scale = Vector2(0.526, 0.526)
+texture = ExtResource("25_u50mg")
+flip_h = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="AnimationPlayer" unique_id=30555603]
+
+[node name="ColorRect" type="ColorRect" parent="AnimationPlayer/CanvasLayer" unique_id=409197150]
+visible = false
+self_modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="MushroomPuzzle" type="Node" parent="." unique_id=872458693 node_paths=PackedStringArray("animation_player") groups=["Mushroom_Puzzle"]]
+script = ExtResource("24_3pmx8")
+animation_player = NodePath("../AnimationPlayer")
+
+[node name="AppleCollition" type="StaticBody2D" parent="." unique_id=1715082626 groups=["AppleCollition"]]
+z_index = -5
+position = Vector2(152, 411.00003)
+scale = Vector2(0.155, 0.155)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AppleCollition" unique_id=1919147788]
+position = Vector2(-158.06439, -74.194336)
+scale = Vector2(0.99999976, 0.99999976)
+shape = SubResource("RectangleShape2D_u50mg")
+
+[node name="MushroomExit" type="Area2D" parent="." unique_id=1052146751]
+visible = false
+script = ExtResource("25_cbgmd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MushroomExit" unique_id=1214224495]
+position = Vector2(-8603, 176.5)
+shape = SubResource("RectangleShape2D_cbgmd")
+
+[node name="End" type="AnimationPlayer" parent="." unique_id=939385075 groups=["EndAnim"]]
+libraries/ = SubResource("AnimationLibrary_7k868")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="End" unique_id=1952085450]
+visible = false
+
+[node name="ColorRect" type="ColorRect" parent="End/CanvasLayer" unique_id=33551749]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="End/CanvasLayer/ColorRect" unique_id=960284770]
+layout_mode = 0
+offset_left = 366.0
+offset_top = 274.0
+offset_right = 782.0
+offset_bottom = 307.0
+text = "Thanks for playing!"
+label_settings = SubResource("LabelSettings_hpc6h")
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="End/CanvasLayer/ColorRect" unique_id=1052807832]
+layout_mode = 0
+offset_left = 160.0
+offset_top = 332.0
+offset_right = 993.0
+offset_bottom = 473.0
+text = "And thanks to everyone who's worked on this prototype:
+Coding: Daniel & Nell
+Artist: Nell
+Music: Josiah"
+label_settings = SubResource("LabelSettings_hpc6h")
+horizontal_alignment = 1
 
 [connection signal="mouse_entered" from="MushroomRed" to="MushroomRed" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="MushroomRed" to="MushroomRed" method="_on_mouse_exited"]
@@ -263,3 +548,6 @@ shape = SubResource("RectangleShape2D_r33sp")
 [connection signal="mouse_exited" from="MushroomYellow" to="MushroomYellow" method="_on_mouse_exited"]
 [connection signal="mouse_entered" from="MushroomPink" to="MushroomPink" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="MushroomPink" to="MushroomPink" method="_on_mouse_exited"]
+[connection signal="input_event" from="MushroomExit" to="MushroomExit" method="_on_input_event"]
+[connection signal="mouse_entered" from="MushroomExit" to="MushroomExit" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="MushroomExit" to="MushroomExit" method="_on_mouse_exited"]

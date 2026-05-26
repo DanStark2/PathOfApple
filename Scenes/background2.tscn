@@ -1,9 +1,14 @@
 [gd_scene format=3 uid="uid://b2nvw76eld0hr"]
 
 [ext_resource type="Texture2D" uid="uid://ckxepmqm53kmb" path="res://Assets/Sprites/fixed background swiped 2.png" id="1_n3b4e"]
+[ext_resource type="Texture2D" uid="uid://x11i371yh4dk" path="res://Assets/Sprites/NewerAssets/trees.png" id="2_3qjci"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sn1xx"]
 size = Vector2(2233.3125, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ls5bj"]
+atlas = ExtResource("2_3qjci")
+region = Rect2(2008, 0, 800, 1264)
 
 [node name="Background2" type="Sprite2D" unique_id=155435071]
 z_index = -3
@@ -15,3 +20,13 @@ texture = ExtResource("1_n3b4e")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=407309136]
 position = Vector2(6.7326393, 253.33333)
 shape = SubResource("RectangleShape2D_sn1xx")
+
+[node name="Tree" type="Sprite2D" parent="." unique_id=1803125425]
+z_index = 4
+position = Vector2(1278.6664, 0)
+scale = Vector2(0.9999999, 1)
+texture = SubResource("AtlasTexture_ls5bj")
+flip_h = true
+
+[node name="Sprite2D4" type="Sprite2D" parent="Tree" unique_id=62994579]
+texture = SubResource("AtlasTexture_ls5bj")

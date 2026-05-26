@@ -3,16 +3,20 @@ extends CharacterBody2D
 
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
-
+var interaction_id := 0
 var move_target: Node
 
-@export var TARGET_DISTANCE = 70.0
+@export var TARGET_DISTANCE = 40.0
 
 @onready var dialogManager: Node = get_tree().get_first_node_in_group("dialogManager")
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
+signal target_reached
 # temp
 var uno = true
+
+func _ready() -> void:
+	position.y = 385.132
 
 
 func _physics_process(delta: float) -> void:
@@ -54,22 +58,21 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 
+
 func moveTo(object: Node, delta: float):
-	if global_position.distance_to(object.global_position) <= TARGET_DISTANCE:
-		if GlobalState.playerInputFrozen == false:
-			var dialog: Array[String] = object.dialog
-			dialogManager.dialogQueue.append_array(object.dialog)
-			print("my dumbo self, appended again and you have to clean up my mess")
-		
+	var x_distance: float = abs(global_position.x - object.global_position.x)
+	
+	if x_distance <= TARGET_DISTANCE:
 		print("emptied move_target")
-		print(object.dialog)
-		
-		dialogManager.nextText()
+
 		move_target = null
+		uno = true
 		play_anim("idle")
+
+		target_reached.emit()
 		
 	elif object:
-		print(global_position.distance_to(object.position))
+		print(x_distance)
 		print("started MoveTo")
 		
 		var old_x := position.x
